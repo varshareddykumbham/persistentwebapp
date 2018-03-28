@@ -39,8 +39,8 @@ WORKDIR /data/persistentwebapp/persistentwebapp/target/
 # copy war file
 #ADD PersistentWebApp.war /var/lib/tomcat7/webapps/
 RUN  /etc/init.d/tomcat7 stop 
-RUN rm -f /data/persistentwebapp/persistentwebapp/target/PersistentWebApp.war
-RUN rm -rf /data/persistentwebapp/persistentwebapp/target/PersistentWebApp
+RUN rm -f /var/lib/tomcat7/webapps/PersistentWebApp.war
+RUN rm -rf /var/lib/tomcat7/webapps/PersistentWebApp
 RUN cp /data/persistentwebapp/persistentwebapp/target/PersistentWebApp.war /var/lib/tomcat7/webapps/
 
 
