@@ -14,6 +14,7 @@ RUN  apt-get install -y  git maven
 
 
 # Create the default data directory
+RUN -rm -rf /data/
 RUN mkdir -p /data/
 
 # switch to new directory
