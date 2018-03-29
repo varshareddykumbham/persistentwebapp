@@ -27,6 +27,8 @@ RUN git clone https://github.com/vikramsardeshpande/persistentwebapp.git
 # switch to persistentwebapp directory
 WORKDIR /data/persistentwebapp/persistentwebapp
 
+# use maven to compile 
+RUN mvn compile
 # use maven to package
 RUN mvn package
 
