@@ -3,12 +3,12 @@ FROM ubuntu
 
 
 # Update the repository sources list
-RUN apt-get update
+####RUN apt-get update
 
 ################## BEGIN INSTALLATION ######################
 # Install opejdk
 ##RUN apt-get install -y default-jdk
-RUN apt-get install -y  openjdk-8-jdk
+####RUN apt-get install -y  openjdk-8-jdk
 
 # install git and maven
 ####RUN  apt-get install -y  git maven
@@ -23,7 +23,7 @@ RUN mkdir -p /data/
 WORKDIR /data
 
 # perform git clone
-RUN git clone https://github.com/vikramsardeshpande/persistentwebapp.git
+####RUN git clone https://github.com/vikramsardeshpande/persistentwebapp.git
 
 # switch to persistentwebapp directory
 WORKDIR /data/persistentwebapp/persistentwebapp
