@@ -1,5 +1,6 @@
 # Set the base image to Ubuntu
-FROM ubuntu
+####FROM ubuntu
+FROM ubuntu:14.04
 
 
 # Update the repository sources list
