@@ -11,7 +11,7 @@ RUN apt-get update
 RUN apt-get install -y  openjdk-8-jdk
 
 # install git and maven
-RUN  apt-get install -y  git maven
+####RUN  apt-get install -y  git maven
 
 
 # Create the default data directory
@@ -29,12 +29,14 @@ RUN git clone https://github.com/vikramsardeshpande/persistentwebapp.git
 WORKDIR /data/persistentwebapp/persistentwebapp
 
 # use maven to compile 
-RUN mvn compile
+####RUN mvn compile
 # use maven to package
-RUN mvn package
+####RUN mvn package
 
 
 # install tomcat7
+ADD deb http://security.ubuntu.com/ubuntu /etc/apt/sources.list
+RUN apt-get update 
 RUN apt-get install -y tomcat7
 
 # switch to cloudenabledwebapp directory
