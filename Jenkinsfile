@@ -1,7 +1,7 @@
 Pipeline {
     agent any
     environment {
-        containerName = "persistent-web-appr"
+        containerName = "persistent-web-app"
         container_version = "1.0.0.${BUILD_ID}"
         dockerTag = "${containerName}:${container_version}"
     }
