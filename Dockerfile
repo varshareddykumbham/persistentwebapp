@@ -35,7 +35,7 @@ WORKDIR /data/persistentwebapp/persistentwebapp
 
 
 # install tomcat7
-ADD deb http://security.ubuntu.com/ubuntu /etc/apt/sources.list
+##ADD deb http://security.ubuntu.com/ubuntu /etc/apt/sources.list
 RUN apt-get update 
 RUN apt-get install -y tomcat7
 
