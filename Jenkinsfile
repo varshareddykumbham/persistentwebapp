@@ -1,4 +1,4 @@
-Pipeline {
+pipeline {
     agent any
     environment {
         containerName = "persistent-web-app"
