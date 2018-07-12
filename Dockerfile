@@ -3,12 +3,12 @@ FROM ubuntu
 
 
 # Update the repository sources list
-####RUN apt-get update
+RUN apt-get update
 
 ################## BEGIN INSTALLATION ######################
 # Install opejdk
 ##RUN apt-get install -y default-jdk
-####RUN apt-get install -y  openjdk-8-jdk
+RUN apt-get install -y   openjdk-7-jdk
 
 # install git and maven
 ####RUN  apt-get install -y  git maven
@@ -36,8 +36,8 @@ WORKDIR /data/persistentwebapp/persistentwebapp
 
 # install tomcat7
 ##ADD deb http://security.ubuntu.com/ubuntu /etc/apt/sources.list
-RUN apt-get update 
-RUN apt-get install -y tomcat7
+####RUN apt-get update 
+RUN apt-get install -y tomcat7 tomcat7-docs tomcat7-examples tomcat7-admin
 
 # switch to cloudenabledwebapp directory
 WORKDIR /data/persistentwebapp/persistentwebapp/target/
