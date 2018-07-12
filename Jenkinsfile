@@ -8,7 +8,7 @@ Pipeline {
     stages{
         stage ('Build Container') {
             steps {
-                sh 'docker build -f "Dockerfile" --no-cache -t ${dockerTag} .''
+                sh 'docker build -f "Dockerfile" --no-cache -t ${dockerTag} .'
             }
         }
         
