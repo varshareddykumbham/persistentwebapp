@@ -33,7 +33,7 @@ pipeline {
                 script {
                     if ( -s ./stop )
                      {
-                    docker stop cat ./stop
+                    sh 'docker stop cat ./stop'
                    //    docker rmi `cat ./stop` --force
                      }
                  }
