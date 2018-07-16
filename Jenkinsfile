@@ -30,13 +30,13 @@ pipeline {
         stage('Destroy existing image') {
             steps { 
                 sh 'docker ps | grep persistent-web-app | cut -d ' ' -f1 | tee ./stop'
-                if [ -s ./stop ]
-                  then
-                   {
+                script {
+                    if ( -s ./stop )
+                     {
                     sh 'docker stop `cat ./stop`'
                     #    docker rmi `cat ./stop` --force
                      }
-                  fi
+                 }
               }
     }
 } 
