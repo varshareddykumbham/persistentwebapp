@@ -27,6 +27,17 @@ pipeline {
             sh 'docker rmi `cat ./xxx` --force ||exit 0'
             }
         }
+        stage('Destroy existing image') {
+            steps { 
+                sh 'docker ps | grep persistent-web-app | cut -d ' ' -f1 | tee ./stop'
+                if [ -s ./stop ]
+                  then
+                   {
+                    sh 'docker stop `cat ./stop`'
+                    #    docker rmi `cat ./stop` --force
+                     }
+                  fi
+              }
     }
 } 
          
