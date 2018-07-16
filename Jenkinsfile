@@ -21,7 +21,12 @@ pipeline {
              }
         }
       }
-        
+        stage('Docker Cleanup') {
+            {
+                sh "docker images ${dockerTag} -q | tee ./xxx"
+            sh 'docker rmi `cat ./xxx` --force ||exit 0'
+            }
+        }
     }
 } 
          
