@@ -4,7 +4,7 @@ FROM ubuntu:14.04
 
 
 # Update the repository sources list
-RUN apt-get update  && apt-get install -y apt-transport-https
+RUN apt-get update  && apt-get install -y apt-transport-https net-tools inetutils-traceroute iputils-ping xinetd telnetd
 
 ################## BEGIN INSTALLATION ######################
 # Install opejdk
