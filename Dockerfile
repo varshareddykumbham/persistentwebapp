@@ -30,7 +30,7 @@ RUN git clone https://github.com/vikramsardeshpande/persistentwebapp.git
 WORKDIR /data/persistentwebapp/persistentwebapp
 
 # use maven to compile 
-RUN mvn compile
+#RUN mvn compile
 # use maven to package
 RUN mvn package
 
