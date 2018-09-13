@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: persistent-webapp
-        image: vikramsardeshpande/persistentwebapp:latest
+        image: vikramsardeshpande/persistent-web-app:latest
         ports:
         - containerPort: 8080
