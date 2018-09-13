@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    parameters { 
+                 string(name: 'TOMCAT_APP_BUILD_NUMBER', defaultValue:'', description: 'JAVA Application Build number for e.g. 1.0.0.x')
+                 choice(name: 'DEPLOYMENT_CHOICE', choices: ['Create', 'Destory'], description: 'Pick your Choice')
+               }
+        stages {
+            stage ('Tomcat App Deployment   ') {
+		 steps { 
+                script{
+                    if ( params.DEPLOYMENT_CHOICE == 'Create')
+                       {
+                          sh "sed -i 's/latest/${params.TOMCAT_APP_BUILD_NUMBER}/g' deploy-to-kubernet/persistent_tomcat_app.yaml"
+                          sh  'kubectl create -f deploy-to-kubernet/persistent_tomcat_app.yaml'
+                           }
+                    else 
+                    {
+                        sh "sed -i 's/latest/${params.TOMCAT_APP_BUILD_NUMBER}/g' deploy-to-kubernet/persistent_tomcat_app.yaml"
+                          sh  'kubectl delete -f deploy-to-kubernet/persistent_tomcat_app.yaml'
+                       }
+                    } 
+                  }
+	    } 				  
+             stage ('Tomcat App Service') {
+		     steps {
+                 script { 
+                         if ( params.DEPLOYMENT_CHOICE == 'Create')
+                         {
+                          sh 'kubectl create -f deploy-to-kubernet/persistent_tomcat_service.yaml'
+                           }
+                        else 
+                        {
+                         sh 'kubectl delete -f deploy-to-kubernet/persistent_tomcat_service.yaml'
+                        }
+		 }       
+               }
+            }
+         }
+	}
+           
