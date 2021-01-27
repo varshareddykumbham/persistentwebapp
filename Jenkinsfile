@@ -8,7 +8,7 @@ pipeline {
     stages{
         stage ('Build Container') {
             steps {
-                sh 'sudo docker build -f "Dockerfile" --no-cache -t ${dockerTag} .'
+                sh 'docker build -f "Dockerfile" --no-cache -t ${dockerTag} .'
                 //sh 'docker build -f "Dockerfile" -t ${dockerTag} .'
                   }
              }
