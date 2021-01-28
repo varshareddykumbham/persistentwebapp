@@ -1,7 +1,7 @@
 # Set the base image to Ubuntu
 ####FROM ubuntu
 FROM ubuntu:14.04
-
+RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Update the repository sources list
 RUN apt-get update  && apt-get install -y apt-transport-https net-tools inetutils-traceroute iputils-ping xinetd telnetd
