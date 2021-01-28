@@ -8,6 +8,7 @@ pipeline {
     stages{
         stage ('Build Container') {
             steps {
+                 sh "sudo chown root:jenkins /run/docker.sock"
                 sh 'docker build -f "Dockerfile" --no-cache -t ${dockerTag} .'
                 //sh 'docker build -f "Dockerfile" -t ${dockerTag} .'
                   }
